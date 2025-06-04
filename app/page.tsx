@@ -1,7 +1,9 @@
 
-
 export default function Home() {
   return (
-    <h3> hello</h3>
+    <main className="bg-gray-100">
+      {/* Home Section */}
+
+    </main>
   );
 }
