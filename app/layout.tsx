@@ -2,6 +2,19 @@ import type { Metadata } from "next";
 import Footer from "../components/footer";
 import Navbar from "@/components/navbar";
 import "../app/globals.css";
+import { Lora } from "next/font/google";
+
+const lora = Lora({ subsets: ["latin"], weight: ["400", "700"] });
+
+import type { AppProps } from "next/app";
+
+export function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <main className={lora.className}>
+      <Component {...pageProps} />
+    </main>
+  );
+}
 
 export const metadata: Metadata = {
   title:
