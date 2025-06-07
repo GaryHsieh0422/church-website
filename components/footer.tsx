@@ -2,7 +2,6 @@ export default function Footer() {
   return (
     <footer className="bg-amber-50 py-3 font-sans">
       <div className="container mx-auto flex flex-col items-center">
-        {/* Title Row */}
         <div className="flex items-center justify-between w-full mb-2">
           <div className="flex items-center">
             <span className="text-gold-700 text-xl font-bold leading-tight tracking-tight font-noto">
@@ -73,7 +72,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Address Row */}
+
         <div className="flex items-center justify-center w-full mb-1 text-gold-700 text-base font-normal leading-relaxed tracking-wide font-noto">
           <svg
             className="w-4 h-4 mr-1.5"
@@ -86,7 +85,6 @@ export default function Footer() {
           <span>東涌馬灣新村28號地下及一樓</span>
         </div>
 
-        {/* Contact Info Row */}
         <div className="flex flex-wrap items-center justify-center w-full mb-1 text-gray-800 text-sm font-normal leading-normal tracking-normal gap-4">
           <div className="flex items-center">
             <svg
@@ -129,7 +127,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="text-center text-xs text-gray-600 font-light leading-normal tracking-wide">
           <p>
             Copyright © {new Date().getFullYear()} by Evangelical Free Church of

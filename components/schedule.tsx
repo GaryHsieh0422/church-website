@@ -10,7 +10,6 @@ const ScheduleBlock = ({
   time: React.ReactNode;
 }) => (
   <div className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-8 rounded-2xl shadow-2xl text-gray-900 hover:bg-opacity-95 hover:scale-105 hover:-rotate-1 hover:shadow-[0_10px_20px_rgba(251,191,36,0.5)] transition-all duration-300 ease-in-out w-full max-w-sm mx-auto border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden">
-    {/* Decorative Clock Icon */}
     <div className="absolute top-4 left-4 w-6 h-6 bg-amber-300 rounded-full flex items-center justify-center">
       <svg
         className="w-4 h-4 text-orange-600"
@@ -42,7 +41,6 @@ const ScheduleBlock = ({
 const Schedule = () => {
   return (
     <div className="min-h-screen flex items-center justify-center relative border-2 border-solid border-white">
-      {/* Background Image Container */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="w-full h-full bg-cover bg-center"
@@ -51,19 +49,15 @@ const Schedule = () => {
             filter: "blur(8px)",
             backgroundSize: "cover",
             backgroundColor: "rgba(0, 0, 0, 0.2)",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+
           }}
         />
       </div>
-      {/* Content */}
-      <div className="relative text-center p-8 max-w-4xl w-full z-10">
+      <div className="relative text-center max-w-4xl w-full z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 font-serif font-lora">
           崇拜時間表
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-center">
-          {/* First Row */}
           <ScheduleBlock
             title="成人崇拜"
             date="週日上午"
@@ -87,7 +81,6 @@ const Schedule = () => {
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-center">
-          {/* Second Row - Centered */}
           <ScheduleBlock
             title="少年GPS慶典"
             date="每月第三個週六"

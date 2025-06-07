@@ -32,8 +32,8 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
-    return () => clearInterval(timer); // Cleanup on unmount
+    }, 5000); 
+    return () => clearInterval(timer);
   }, [slides.length]);
 
   // Handle arrow navigation
@@ -54,7 +54,6 @@ const Hero: React.FC = () => {
     <section className="hero bg-gray-100 py-16 min-h-[300px] md:min-h-[500px] flex justify-center items-center">
       <div className="container mx-auto text-center">
         <div className="relative">
-          {/* Carousel Content */}
           <div className="w-full h-[250px] md:h-[400px]">
             {slides.map((slide, index) => (
               <div
@@ -70,7 +69,6 @@ const Hero: React.FC = () => {
             ))}
           </div>
 
-          {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-amber-500 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75"
