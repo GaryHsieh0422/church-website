@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 const ScheduleBlock = ({
@@ -9,7 +11,7 @@ const ScheduleBlock = ({
   date: string;
   time: React.ReactNode;
 }) => (
-  <div className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-8 rounded-2xl shadow-2xl text-gray-900 hover:bg-opacity-95 hover:scale-105 hover:-rotate-1 hover:shadow-[0_10px_20px_rgba(251,191,36,0.5)] transition-all duration-300 ease-in-out w-full max-w-sm mx-auto border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden">
+  <div className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl text-gray-900 hover:bg-opacity-95 hover:scale-105 hover:-rotate-1 hover:shadow-[0_10px_20px_rgba(251,191,36,0.5)] transition-all duration-300 ease-in-out w-full min-w-[200px] max-w-[90vw] sm:max-w-[30vw] border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden">
     <div className="absolute top-4 left-4 w-6 h-6 bg-amber-300 rounded-full flex items-center justify-center">
       <svg
         className="w-4 h-4 text-orange-600"
@@ -26,13 +28,13 @@ const ScheduleBlock = ({
         />
       </svg>
     </div>
-    <h3 className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent border-b-2 border-amber-200 pb-3 pl-8 font-serif font-lora">
+    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent border-b-2 border-amber-200 pb-3 pl-8 font-serif font-lora">
       {title}
     </h3>
-    <p className="mt-4 text-lg font-serif font-lora text-amber-600 font-medium drop-shadow-sm">
+    <p className="mt-4 text-base sm:text-lg font-serif font-lora text-amber-600 font-medium drop-shadow-sm">
       {date}
     </p>
-    <p className="mt-3 text-lg font-serif font-lora text-orange-600 font-medium drop-shadow-sm">
+    <p className="mt-3 text-base sm:text-lg font-serif font-lora text-orange-600 font-medium drop-shadow-sm">
       {time}
     </p>
   </div>
@@ -40,7 +42,7 @@ const ScheduleBlock = ({
 
 const Schedule = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative border-2 border-solid border-white">
+    <div className="min-h-screen flex items-center justify-center relative border-2 border-solid border-white p-4">
       <div className="absolute inset-1 overflow-hidden">
         <div
           className="w-full h-full bg-cover bg-center"
@@ -49,15 +51,14 @@ const Schedule = () => {
             filter: "blur(8px)",
             backgroundSize: "cover",
             backgroundColor: "rgba(0, 0, 0, 0.2)",
-
           }}
         />
       </div>
-      <div className="relative text-center max-w-4xl w-full z-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 font-serif font-lora">
+      <div className="relative text-center w-full max-w-6xl z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 font-serif font-lora">
           崇拜時間表
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 justify-center">
           <ScheduleBlock
             title="成人崇拜"
             date="週日上午"
@@ -79,8 +80,6 @@ const Schedule = () => {
               </>
             }
           />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-center">
           <ScheduleBlock
             title="少年GPS慶典"
             date="每月第三個週六"
