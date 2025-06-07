@@ -18,15 +18,17 @@ const Map = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative border-2 border-solid border-white">
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{
-          backgroundImage: "url('/church.png')",
-          filter: "blur(8px)",
-          backgroundSize: "cover",
-          backgroundColor: "rgba(0, 0, 0, 0.2)",
-        }}
-      />
+      <div className="absolute inset-1 overflow-hidden">
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/church.png')",
+            filter: "blur(8px)",
+            backgroundSize: "cover",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+          }}
+        />
+      </div>
       <div className="relative text-center max-w-5xl w-full z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 font-serif font-lora tracking-tight drop-shadow-md">
           我們的地址

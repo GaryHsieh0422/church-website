@@ -41,7 +41,7 @@ const ScheduleBlock = ({
 const Schedule = () => {
   return (
     <div className="min-h-screen flex items-center justify-center relative border-2 border-solid border-white">
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-1 overflow-hidden">
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
