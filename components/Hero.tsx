@@ -28,7 +28,6 @@ const Hero: React.FC = () => {
     },
   ];
 
-  // Auto-scroll effect
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -36,7 +35,6 @@ const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  // Handle arrow navigation
   const goToPrevious = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
@@ -54,7 +52,7 @@ const Hero: React.FC = () => {
     <section className="hero bg-gray-100 py-16 min-h-[300px] md:min-h-[500px] flex justify-center items-center">
       <div className="container mx-auto text-center">
         <div className="relative">
-          <div className="w-full h-[250px] md:h-[400px]">
+          <div className="w-full h-[500px] md:h-[800px]">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
