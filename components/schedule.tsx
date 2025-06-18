@@ -11,7 +11,7 @@ const ScheduleBlock = ({
   date: string;
   time: React.ReactNode;
 }) => (
-  <div className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl text-gray-900 hover:bg-opacity-95 hover:scale-105 hover:-rotate-1 hover:shadow-[0_10px_20px_rgba(251,191,36,0.5)] transition-all duration-300 ease-in-out w-full min-w-[200px] max-w-[90vw] sm:max-w-[30vw] border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden">
+  <div className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl text-gray-900 w-full min-w-[200px] max-w-[90vw] sm:max-w-[30vw] border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden">
     <div className="absolute top-4 left-4 w-6 h-6 bg-amber-300 rounded-full flex items-center justify-center">
       <svg
         className="w-4 h-4 text-orange-600"
@@ -43,7 +43,7 @@ const ScheduleBlock = ({
 const Schedule = () => {
   return (
     <div className="min-h-[70vh] flex items-center justify-center relative border-2 border-solid border-white p-4">
-      <div className="absolute inset-1 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
@@ -67,7 +67,7 @@ const Schedule = () => {
           <ScheduleBlock
             title="兒童崇拜"
             date="週日上午"
-            time="10:00 - 11:30"
+            time="10:00 - 11 TTS: 11:30"
           />
           <ScheduleBlock
             title="家庭崇拜及家聚"

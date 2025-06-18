@@ -1,8 +1,18 @@
 "use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
 
-const Map = () => {
+interface MapProps {
+  backgroundImage?: string;
+  blurLevel?: number;
+  overlayOpacity?: number;
+}
+
+const Map = ({
+  backgroundImage = "/church.png",
+  blurLevel = 8,
+  overlayOpacity = 0.3,
+}: MapProps) => {
   const locations = [
     {
       title: "堂址",
@@ -18,70 +28,59 @@ const Map = () => {
     },
   ];
 
+  const [bgImage, setBgImage] = useState(backgroundImage);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onerror = () => {
+      setBgImage("/fallback-bg.png");
+    };
+  }, [backgroundImage]);
+
   return (
-    <div className="min-h-[70vh] flex items-center justify-center relative border-2 border-solid border-white p-4">
-      <div className="absolute inset-1 overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center font-lora bg-gray-900">
+      <style jsx global>{`
+        @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+        .font-lora {
+          font-family: "Lora", "Times New Roman", serif;
+        }
+      `}</style>
+      <div className="absolute inset-0 overflow-hidden">
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "url('/church.png')",
-            filter: "blur(8px)",
+            backgroundImage: `url(${bgImage})`,
+            filter: `blur(${blurLevel}px)`,
             backgroundSize: "cover",
-            backgroundColor: "rgba(0, 0, 0, 0.2)",
+            backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
           }}
         />
       </div>
-      <div className="relative text-center w-full max-w-6xl z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 sm:mb-12 font-serif font-lora tracking-tight drop-shadow-md">
+      <div className="relative z-10 w-full max-w-6xl flex flex-col items-center px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12 tracking-tight text-white drop-shadow-lg leading-tight sm:leading-snug">
           我們的地址
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 justify-center items-start">
-          {locations.map((location, index) => (
-            <div
-              key={index}
-              className="relative bg-gradient-to-br from-amber-100 via-white to-orange-100 bg-opacity-80 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl text-gray-900 hover:bg-opacity-95 hover:scale-105 hover:-rotate-1 hover:shadow-[0_10px_20px_rgba(251,191,36,0.5)] transition-all duration-300 ease-in-out w-full min-w-[250px] max-w-[90vw] sm:max-w-[45vw] border-2 border-solid border-amber-400 backdrop-blur-sm overflow-hidden"
-            >
-              <div className="absolute top-4 left-4 w-6 h-6 bg-amber-300 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-orange-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent border-b-2 border-amber-200 pb-3 pl-8 font-serif font-lora tracking-tight drop-shadow-sm">
-                {location.title}
-              </h2>
-              <p className="mt-4 text-base sm:text-lg font-serif font-lora text-amber-600 font-medium drop-shadow-sm leading-relaxed">
-                {location.address}
-              </p>
-              <iframe
-                src={location.embedUrl}
-                width="100%"
-                height="300"
-                style={{ border: 0, borderRadius: "8px", marginTop: "16px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="min-h-[200px] sm:min-h-[300px] max-h-[50vh]"
-              ></iframe>
-            </div>
-          ))}
-        </div>
+        {locations.map((location, index) => (
+          <div key={index} className="w-full mb-12 sm:mb-16">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 tracking-wide text-white drop-shadow-md leading-snug">
+              {location.title}
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-gray-200 drop-shadow-sm max-w-prose">
+              {location.address}
+            </p>
+            <iframe
+              src={location.embedUrl}
+              width="100%"
+              height="350"
+              style={{ border: 0, borderRadius: "8px" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="mt-4 sm:mt-6 w-full"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
