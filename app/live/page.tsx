@@ -12,6 +12,7 @@ export default function Live() {
     "youtube" | "audio" | null
   >(videoUrl ? "youtube" : null);
   const [youtubeError, setYoutubeError] = useState<boolean>(false);
+  const [reflection, setReflection] = useState("");
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -24,6 +25,15 @@ export default function Live() {
           "2025-06-01 - 信仰的根基",
       };
       setTitle(sermonTitles[videoUrl ?? ""] || "Selected Sermon");
+    }
+    if (reflection) {
+      setReflection(decodeURIComponent(reflection));
+    } else {
+      const reflections = {
+        "https://www.youtube.com/watch?si=d6DuxSepmhZvTnUB&v=nMJ7VXOVjdQ&feature=youtu.be":
+          "你如何在日常生活中體現對神的信仰？",
+      };
+      setReflection(reflections[videoUrl as keyof typeof reflections] || "請反思這次講道的內容。");
     }
   }, [videoUrl]);
 
@@ -133,6 +143,9 @@ export default function Live() {
               音頻播放
             </button>
           </div>
+          <p className="text-3xl font-bold text-black text-center my-8">
+            {reflection}
+          </p>
           <Link
             href="/sermons"
             className="mt-6 px-8 py-3 rounded-xl text-lg font-semibold bg-gray-100 text-gray-800 hover:bg-gray-200 transition-all duration-300 shadow-md animate-fadeInUp animation-delay-600"

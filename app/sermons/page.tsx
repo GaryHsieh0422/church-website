@@ -3,17 +3,29 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 const sermons = [
   {
     id: "1",
     cover: "/2.png",
-    title: "2025-06-01 - 信仰的根基",
+    title: "testing",
     youtubeLink:
       "https://www.youtube.com/watch?si=d6DuxSepmhZvTnUB&v=nMJ7VXOVjdQ&feature=youtu.be",
     audio: "/sermon1.mp3",
     scripture: "羅馬書 12:1-2",
+    reflection:
+      "你如何在日常生活中體現對神的信仰？",
   },
-
+  {
+    id: "2",
+    cover: "/2.png",
+    title: "testing2",
+    youtubeLink: "https://www.youtube.com/watch?v=Egc2a9NQ_4A",
+    audio: "/sermon1.mp3",
+    scripture: "羅馬書 12:1-2",
+    reflection:
+      "你如何在日常生活中體現對神的信仰？",
+  },
 ];
 
 export default function Sermons() {
@@ -24,8 +36,7 @@ export default function Sermons() {
   const filteredSermons = sermons.filter((sermon) =>
     sermon.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  // Pagination logic
+  
   const indexOfLastSermon = currentPage * sermonsPerPage;
   const indexOfFirstSermon = indexOfLastSermon - sermonsPerPage;
   const currentSermons = filteredSermons.slice(
