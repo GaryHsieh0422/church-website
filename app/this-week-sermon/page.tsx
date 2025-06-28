@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function ThisWeekSermons() {
-  const [sermons, setSermons] = useState([
+  const [sermons] = useState([
     {
       id: "1",
       title: "真。生命的糧 你食咗未?",
@@ -19,7 +19,7 @@ export default function ThisWeekSermons() {
 
   useEffect(() => {
     const fetchEmbedUrls = async () => {
-      const urls = {};
+      const urls: { [key: string]: string | null } = {};
       for (const sermon of sermons) {
         try {
           const urlObj = new URL(sermon.youtubeLiveUrl);
@@ -30,7 +30,7 @@ export default function ThisWeekSermons() {
             videoId = urlObj.searchParams.get("v") || "";
           }
           if (videoId) {
-            const isLive = true; // Placeholder; replace with YouTube Data API
+            const isLive = true;
             urls[sermon.id] = isLive
               ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
               : null;
@@ -46,18 +46,6 @@ export default function ThisWeekSermons() {
     fetchEmbedUrls();
   }, [sermons]);
 
-  const getThumbnailUrl = (url: string): string => {
-    const urlObj = new URL(url);
-    let videoId = "";
-    if (urlObj.pathname.startsWith("/live/")) {
-      videoId = urlObj.pathname.split("/live/")[1];
-    } else {
-      videoId = urlObj.searchParams.get("v") || "";
-    }
-    return videoId
-      ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-      : "";
-  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#fef8e8] via-[#f9f0d8] to-[#f0e2b8] py-16 font-sans">
