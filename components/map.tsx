@@ -7,7 +7,6 @@ interface MapProps {
   blurLevel?: number;
   overlayOpacity?: number;
 }
-
 const Map = ({
   backgroundImage = "/church.png",
   blurLevel = 8,
@@ -18,13 +17,13 @@ const Map = ({
       title: "堂址",
       address: "東涌馬灣新村28號地下及一樓",
       embedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.131!2d113.9394!3d22.2878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDE3JzE2LjEiTiAxMTPCsDU2JzI5LjUiRQ!5e0!3m2!1sen!2shk!4v1630000000000",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.9621695545093!2d113.9389412751418!3d22.279422829701623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2a7decd13a3%3A0x9f1a88af2bd53a17!2s28%20Ma%20Wan%20New%20Village!5e0!3m2!1sen!2shk!4v1751090016028!5m2!1sen!2shk",
     },
     {
       title: "崇拜地址",
       address: "東涌富東邨寶安商會溫浩根小學禮堂",
       embedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.094!2d113.9418!3d22.2885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDE3JzE4LjYiTiAxMTPCsDU2JzQxLjUiRQ!5e0!3m2!1sen!2shk!4v1630000000000",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.72950742917!2d113.94089277514205!3d22.288233979695278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2afde82af49%3A0xc9663de5a5bf64dc!2sPo%20On%20Commercial%20Association%20Wan%20Ho%20Kan%20Primary%20School!5e0!3m2!1sen!2shk!4v1751090121551!5m2!1sen!2shk",
     },
   ];
 
