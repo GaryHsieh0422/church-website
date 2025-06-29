@@ -26,13 +26,11 @@ export default function Navbar() {
       <nav className="bg-amber-100 w-full">
         <div className="px-4 py-3 mx-auto flex justify-center">
           <div className="flex items-center w-full relative">
-            {/* Hamburger menu for mobile */}
             <button
               className="md:hidden absolute right-4 top-4 p-2"
               onClick={toggleNavbar}
               aria-label="Toggle Menu"
             >
-              {/* Icon for menu */}
               {isOpen ? (
                 <svg
                   className="w-6 h-6"

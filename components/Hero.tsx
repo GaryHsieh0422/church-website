@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  // Handle bullet click
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };

@@ -12,7 +12,7 @@ export default function Donate() {
     atmInstruction: "存款至指定銀行賬戶，櫃員機存款後請保留收據。",
     onlineBanking:
       "收款人名稱：\n如個別網上銀行限制收款人名稱字母數目，請順序由左至右輸入，直至受限制為止。",
-    fpsQR: "/2.png", // Placeholder for FPS QR code
+    fpsQR: "/2.png",
   });
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
