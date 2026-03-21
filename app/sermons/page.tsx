@@ -26,6 +26,18 @@ const sermons = [
     reflection:
       "你如何在日常生活中體現對神的信仰？",
   },
+
+  {
+    id: "3",
+    cover: "/2.png",
+    title: "testing2",
+    youtubeLink: "https://www.youtube.com/watch?v=Egc2a9NQ_4A",
+    audio: "/sermon1.mp3",
+    scripture: "羅馬書 12:1-2",
+    reflection:
+      "你如何在日常生活中體現對神的信仰？",
+  },
+
 ];
 
 export default function Sermons() {
