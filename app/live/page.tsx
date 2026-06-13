@@ -16,6 +16,7 @@ function LiveContent() {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
+
     const titleParam = urlParams.get("title");
     if (titleParam) {
       setTitle(decodeURIComponent(titleParam));
@@ -26,8 +27,10 @@ function LiveContent() {
       };
       setTitle(sermonTitles[videoUrl ?? ""] || "Selected Sermon");
     }
-    if (reflection) {
-      setReflection(decodeURIComponent(reflection));
+
+    const reflectionParam = urlParams.get("reflection");
+    if (reflectionParam) {
+      setReflection(decodeURIComponent(reflectionParam));
     } else {
       const reflections = {
         "https://www.youtube.com/watch?si=d6DuxSepmhZvTnUB&v=nMJ7VXOVjdQ&feature=youtu.be":

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { AnnualReport, Newsletter, Sermon } from "@/types/supabase";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import {
   addAnnualReport,
   deleteAnnualReport,
@@ -459,7 +460,17 @@ export default function AdminDashboard({ initialUserEmail = '' }: AdminDashboard
                     <button onClick={() => handleDeleteNewsletter(n.id)} className="text-red-600">刪除</button>
                   </div>
                 </div>
-                {n.image_url && <img src={n.image_url} alt="" className="mt-2 max-h-40 rounded" />}
+                {n.image_url && (
+                  <div className="mt-2 relative h-40">
+                    <Image
+                      src={n.image_url}
+                      alt=""
+                      fill
+                      className="rounded object-cover"
+                      sizes="160px"
+                    />
+                  </div>
+                )}
                 <div className="mt-2 text-gray-700 whitespace-pre-line text-sm">{n.content}</div>
               </div>
             ))}

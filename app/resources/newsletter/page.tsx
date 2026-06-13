@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import type { Newsletter } from "@/types/supabase";
 
@@ -116,11 +117,13 @@ export default async function Newsletter({
                 <p className="text-sm text-gray-500 font-sans mb-4">日期：{item.date}</p>
 
                 {item.image_url && (
-                  <div className="mb-6 rounded-xl overflow-hidden border border-amber-100">
-                    <img
+                  <div className="mb-6 rounded-xl overflow-hidden border border-amber-100 relative h-[420px]">
+                    <Image
                       src={item.image_url}
                       alt={item.title}
-                      className="w-full h-auto max-h-[420px] object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
                 )}

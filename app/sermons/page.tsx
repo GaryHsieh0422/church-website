@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import type { Sermon } from "@/types/supabase";
 
@@ -63,10 +64,12 @@ export default async function Sermons() {
                   >
                     <div className="relative h-0 pb-[56.25%] bg-gray-100">
                       {sermon.cover_image_url ? (
-                        <img
+                        <Image
                           src={sermon.cover_image_url}
                           alt={sermon.title}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
