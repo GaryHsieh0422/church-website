@@ -2,9 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
-export default function Live() {
+function LiveContent() {
   const searchParams = useSearchParams();
   const videoUrl = searchParams.get("video");
   const [title, setTitle] = useState<string>("");
@@ -54,7 +54,7 @@ export default function Live() {
   const audioUrl = searchParams.get("audio") || "/sermon1.mp3";
 
   return (
-    <main className="w-full min-h-screen font-sans relative bg-gradient-to-br from-[#fdfaf0] via-[#f9f0d8] to-[#f0e2b8] overflow-hidden">
+    <main className="live-page-main w-full min-h-screen font-sans relative bg-gradient-to-br from-[#fdfaf0] via-[#f9f0d8] to-[#f0e2b8] overflow-hidden">
       <style jsx global>{`
         @keyframes fadeInUp {
           0% {
@@ -69,7 +69,7 @@ export default function Live() {
         .animate-fadeInUp {
           animation: fadeInUp 0.8s ease-out forwards;
         }
-        main::before {
+        .live-page-main::before {
           content: "";
           position: absolute;
           inset: 0;
@@ -77,16 +77,25 @@ export default function Live() {
           background-repeat: repeat;
           z-index: 0;
         }
-        .container {
+        .live-page-main .live-container {
           position: relative;
           z-index: 1;
         }
       `}</style>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="live-container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col items-center space-y-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 text-center tracking-tight leading-tight animate-fadeInUp">
-            {title}
-          </h2>
+          <div className="w-full max-w-5xl relative">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 text-center tracking-tight leading-tight animate-fadeInUp">
+              {title}
+            </h2>
+            <Link
+              href="/sermons"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 px-4 py-2 text-sm font-semibold bg-gray-100 text-gray-800 hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1"
+              aria-label="返回講道頁面"
+            >
+              ← 返回講道
+            </Link>
+          </div>
           <div className="w-full max-w-5xl animate-fadeInUp animation-delay-200">
             {selectedMedia === "youtube" && embedUrl && !youtubeError ? (
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
@@ -146,15 +155,16 @@ export default function Live() {
           <p className="text-3xl font-bold text-black text-center my-8">
             {reflection}
           </p>
-          <Link
-            href="/sermons"
-            className="mt-6 px-8 py-3 rounded-xl text-lg font-semibold bg-gray-100 text-gray-800 hover:bg-gray-200 transition-all duration-300 shadow-md animate-fadeInUp animation-delay-600"
-            aria-label="返回講道頁面"
-          >
-            返回講道
-          </Link>
         </div>
       </div>
     </main>
+  );
+}
+
+export default function LivePage() {
+  return (
+    <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center">載入中...</div>}>
+      <LiveContent />
+    </Suspense>
   );
 }

@@ -40,10 +40,9 @@ export default function Home() {
         variants={simpleFade}
         initial="initial"
         animate={heroInView ? "animate" : "initial"}
-        transition={{ duration: 1.0, ease: "easeOut", delay: 0.1}}
-      >
-        <Hero />
-      </motion.section>
+        transition={{ duration: 1.0, ease: "easeOut", delay: 0.1 }}
+      ></motion.section>
+
       <motion.section
         ref={scheduleRef}
         variants={simpleFade}
@@ -61,6 +60,7 @@ export default function Home() {
         transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
       >
         <Map />
+        <Hero />
       </motion.section>
     </main>
   );

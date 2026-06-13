@@ -101,27 +101,9 @@ export default function About() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-amber-50 to-amber-100/30 py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-center mb-16 tracking-tight leading-tight drop-shadow-lg relative"
-          initial={{ opacity: 0, y: -50, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-            type: "spring",
-            stiffness: 100,
-          }}
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-400">
-            關於教會
-          </span>
-          <motion.span
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          />
-        </motion.h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-center mb-12 tracking-tight leading-tight">
+          關於教會
+        </h1>
 
         <motion.div
           className="relative"

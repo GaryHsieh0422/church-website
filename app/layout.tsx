@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "../components/footer";
-import Navbar from "@/components/navbar";
 import "../app/globals.css";
 import { Lora } from "next/font/google";
 
@@ -26,6 +24,8 @@ export const metadata: Metadata = {
   ),
 };
 
+import LayoutContent from "@/components/layout-content";
+
 export default function RootLayout({
   children,
 }: {
@@ -34,10 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">{children}</main>{" "}
-        {/* Flex-grow ensures content takes available space */}
-        <Footer />
+        <LayoutContent>{children}</LayoutContent>
       </body>
     </html>
   );

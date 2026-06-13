@@ -20,10 +20,7 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <div className="min-h-[100px]"></div>
-
-      <nav className="bg-amber-100 w-full">
+    <nav className="bg-amber-100 w-full relative z-50">
         <div className="px-4 py-3 mx-auto flex justify-center">
           <div className="flex items-center w-full relative">
             <button
@@ -126,6 +123,5 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </>
   );
 }

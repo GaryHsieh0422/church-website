@@ -130,16 +130,7 @@ export default function Footer() {
         <div className="text-center text-xs text-gray-600 font-light leading-normal tracking-wide">
           <p>
             Copyright © {new Date().getFullYear()} by Evangelical Free Church of
-            China Breezy Church. All rights reserved. Powered by{" "}
-            <a
-              href="https://github.com/GaryHsieh0422"
-              className="hover:underline text-gray-600"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GaryHsieh0422
-            </a>
-            .
+            China Breezy Church. All rights reserved.
           </p>
         </div>
       </div>
