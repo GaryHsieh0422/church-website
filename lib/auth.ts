@@ -1,4 +1,4 @@
-import * as jose from 'jose';
+import { SignJWT, jwtVerify } from 'jose';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = '7d'; // 7 days session
@@ -13,7 +13,7 @@ const secret = new TextEncoder().encode(JWT_SECRET || 'dev-secret-change-me-in-p
  * Sign a JWT for an admin user.
  */
 export async function signJwt(payload: { userId: string; email: string }): Promise<string> {
-  return new jose.SignJWT(payload)
+  return new SignJWT(payload)
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime(JWT_EXPIRES_IN)
@@ -25,7 +25,7 @@ export async function signJwt(payload: { userId: string; email: string }): Promi
  */
 export async function verifyJwt(token: string): Promise<{ userId: string; email: string } | null> {
   try {
-    const { payload } = await jose.jwtVerify(token, secret);
+    const { payload } = await jwtVerify(token, secret);
     return {
       userId: payload.userId as string,
       email: payload.email as string,
